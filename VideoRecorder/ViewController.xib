@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="VideoRecorder" customModuleProvider="target">
+            <connections>
+                <outlet property="playButton" destination="IMI-ze-jho" id="Fg4-BD-eKC"/>
+                <outlet property="previewContainer" destination="yND-gp-utF" id="0jr-ag-3e4"/>
+                <outlet property="recordButton" destination="SLF-QV-rV3" id="og5-wr-nzI"/>
+                <outlet property="view" destination="iN0-l3-epB" id="auB-k6-xog"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yND-gp-utF" userLabel="Preview Container">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJj-gC-wOc" userLabel="Buttons Container">
+                    <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMI-ze-jho">
+                            <rect key="frame" x="222.5" y="27" width="118" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="118" id="37O-ew-uwT"/>
+                                <constraint firstAttribute="height" constant="47" id="ESf-uP-5uI"/>
+                            </constraints>
+                            <state key="normal" title="Play"/>
+                            <connections>
+                                <action selector="playAction:" destination="-1" eventType="touchUpInside" id="tmh-QA-KAJ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLF-QV-rV3">
+                            <rect key="frame" x="35" y="27" width="118" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="118" id="I5z-Wn-AKp"/>
+                                <constraint firstAttribute="height" constant="47" id="gzc-NS-xNc"/>
+                            </constraints>
+                            <state key="normal" title="Record"/>
+                            <connections>
+                                <action selector="recordAction:" destination="-1" eventType="touchUpInside" id="jXQ-u1-pNo"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="SLF-QV-rV3" firstAttribute="centerY" secondItem="DJj-gC-wOc" secondAttribute="centerY" id="0fL-rf-5b0"/>
+                        <constraint firstItem="IMI-ze-jho" firstAttribute="centerX" secondItem="DJj-gC-wOc" secondAttribute="centerX" multiplier="1.5" id="Lmk-uo-8gN"/>
+                        <constraint firstItem="IMI-ze-jho" firstAttribute="centerY" secondItem="DJj-gC-wOc" secondAttribute="centerY" id="Sbq-Lz-6gc"/>
+                        <constraint firstItem="SLF-QV-rV3" firstAttribute="centerX" secondItem="DJj-gC-wOc" secondAttribute="centerX" multiplier="0.5" id="baQ-1w-qkn"/>
+                        <constraint firstAttribute="height" constant="100" id="tUc-hm-pjo"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DJj-gC-wOc" secondAttribute="trailing" id="0NA-Gz-YU2"/>
+                <constraint firstItem="DJj-gC-wOc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5Cx-EL-dc1"/>
+                <constraint firstItem="yND-gp-utF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GUG-Sj-nWv"/>
+                <constraint firstAttribute="trailing" secondItem="yND-gp-utF" secondAttribute="trailing" id="bnV-qW-WMH"/>
+                <constraint firstItem="DJj-gC-wOc" firstAttribute="top" secondItem="yND-gp-utF" secondAttribute="bottom" id="lcD-yC-nhc"/>
+                <constraint firstAttribute="bottom" secondItem="DJj-gC-wOc" secondAttribute="bottom" id="xTl-uv-wvJ"/>
+                <constraint firstItem="yND-gp-utF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yeI-5o-2Ra"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

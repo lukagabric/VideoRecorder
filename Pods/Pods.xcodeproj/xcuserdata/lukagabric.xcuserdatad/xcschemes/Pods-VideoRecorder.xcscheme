@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4124EB311F35FA3C00F2F6A7"
-               BuildableName = "VideoRecorder.app"
-               BlueprintName = "VideoRecorder"
-               ReferencedContainer = "container:VideoRecorder.xcodeproj">
+               BlueprintIdentifier = "5333A16D53943847AA2FEE45227B51BC"
+               BuildableName = "Pods_VideoRecorder.framework"
+               BlueprintName = "Pods-VideoRecorder"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -30,15 +30,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4124EB311F35FA3C00F2F6A7"
-            BuildableName = "VideoRecorder.app"
-            BlueprintName = "VideoRecorder"
-            ReferencedContainer = "container:VideoRecorder.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -53,16 +44,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4124EB311F35FA3C00F2F6A7"
-            BuildableName = "VideoRecorder.app"
-            BlueprintName = "VideoRecorder"
-            ReferencedContainer = "container:VideoRecorder.xcodeproj">
+            BlueprintIdentifier = "5333A16D53943847AA2FEE45227B51BC"
+            BuildableName = "Pods_VideoRecorder.framework"
+            BlueprintName = "Pods-VideoRecorder"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -72,16 +62,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4124EB311F35FA3C00F2F6A7"
-            BuildableName = "VideoRecorder.app"
-            BlueprintName = "VideoRecorder"
-            ReferencedContainer = "container:VideoRecorder.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
