@@ -38,6 +38,10 @@ public class CaptureService: NSObject, AVCaptureFileOutputRecordingDelegate {
 		self.configure()
 	}
 	
+	deinit {
+		self.session.stopRunning()
+	}
+	
 	//MARK: - Configuration
 	
 	private func configure() {
@@ -94,17 +98,25 @@ public class CaptureService: NSObject, AVCaptureFileOutputRecordingDelegate {
 		self.videoOutput = videoOutput
 	}
 	
+	//MARK: - Preview
+	
+	public func startPreview() {
+		self.session.startRunning()
+	}
+	
 	//MARK: - Record
 	
 	public func startRecording(fileURL: URL) {
 		guard self.isRecording == false,
 			let videoOutput = self.videoOutput else { return }
 		
+		if !self.session.isRunning {
+			self.session.startRunning()
+		}
+		
 		self.isRecording = true
 		
 		try? FileManager.default.removeItem(at: fileURL)
-		
-		self.session.startRunning()
 		
 		videoOutput.startRecording(to: fileURL, recordingDelegate: self)
 	}
@@ -115,6 +127,7 @@ public class CaptureService: NSObject, AVCaptureFileOutputRecordingDelegate {
 		if let videoOutput = self.videoOutput {
 			videoOutput.stopRecording()
 		}
+		
 		self.session.stopRunning()
 	}
 		
@@ -122,7 +135,7 @@ public class CaptureService: NSObject, AVCaptureFileOutputRecordingDelegate {
 
 	public func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
 		self.isRecording = false
-		print("did finish")
+		print("Did Finish Recording")
 	}
 	
 	//MARK: -

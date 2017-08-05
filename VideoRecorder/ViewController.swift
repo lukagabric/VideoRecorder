@@ -47,6 +47,7 @@ class ViewController: UIViewController {
 		self.setButtonsEnabled(false)
 		
 		self.previewContainer.layer.addSublayer(self.previewLayer)
+		self.captureService.startPreview()
 		
 		self.checkPermissionAndRecord()
 	}
@@ -103,20 +104,23 @@ class ViewController: UIViewController {
 	
 	//MARK: - User Interaction
 	
-	@IBAction func recordAction(_ sender: Any) {
-		self.freePreview()
+	@IBAction func recordAction() {
+		self.freePlayer()
 		self.setButtonsEnabled(false)
 
 		self.captureService.startRecording(fileURL: self.createFileUrl())
 		DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3) {
 			self.captureService.stopRecording()
-			
-			self.setButtonsEnabled(true)
+
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+				self.setButtonsEnabled(true)
+				self.playAction()
+			}
 		}
 	}
 
-	@IBAction func playAction(_ sender: Any) {
-		self.freePreview()
+	@IBAction func playAction() {
+		self.freePlayer()
 		
 		let videoURL = self.createFileUrl()
 
@@ -135,10 +139,11 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func playerDidFinishPlaying() {
-		self.freePreview()
+		self.freePlayer()
+		self.captureService.startPreview()
 	}
 	
-	private func freePreview() {
+	private func freePlayer() {
 		self.player?.pause()
 		self.playerLayer?.removeFromSuperlayer()
 		self.playerLayer = nil
@@ -146,8 +151,8 @@ class ViewController: UIViewController {
 	}
 	
 	private func createFileUrl() -> URL {
-		let documentsUrl = FileManager.default.urls(for: .cachesDirectory, in:.userDomainMask).first!
-		let videoUrl = documentsUrl.appendingPathComponent("video12.mov")
+		let documentsUrl = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask).first!
+		let videoUrl = documentsUrl.appendingPathComponent("video.mov")
 		return videoUrl
 	}
 	

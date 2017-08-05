@@ -38,7 +38,7 @@
                             </constraints>
                             <state key="normal" title="Play"/>
                             <connections>
-                                <action selector="playAction:" destination="-1" eventType="touchUpInside" id="tmh-QA-KAJ"/>
+                                <action selector="playAction" destination="-1" eventType="touchUpInside" id="L8l-nB-K23"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLF-QV-rV3">
@@ -49,7 +49,7 @@
                             </constraints>
                             <state key="normal" title="Record"/>
                             <connections>
-                                <action selector="recordAction:" destination="-1" eventType="touchUpInside" id="jXQ-u1-pNo"/>
+                                <action selector="recordAction" destination="-1" eventType="touchUpInside" id="Hy6-0g-SDF"/>
                             </connections>
                         </button>
                     </subviews>
