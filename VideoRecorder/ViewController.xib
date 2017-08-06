@@ -15,6 +15,7 @@
                 <outlet property="playButton" destination="IMI-ze-jho" id="Fg4-BD-eKC"/>
                 <outlet property="previewContainer" destination="yND-gp-utF" id="0jr-ag-3e4"/>
                 <outlet property="recordButton" destination="SLF-QV-rV3" id="og5-wr-nzI"/>
+                <outlet property="recordingInfoView" destination="05h-EH-8H5" id="rwJ-er-5WX"/>
                 <outlet property="view" destination="iN0-l3-epB" id="auB-k6-xog"/>
             </connections>
         </placeholder>
@@ -31,9 +32,9 @@
                     <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMI-ze-jho">
-                            <rect key="frame" x="222.5" y="27" width="118" height="47"/>
+                            <rect key="frame" x="211.5" y="27" width="140" height="47"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="118" id="37O-ew-uwT"/>
+                                <constraint firstAttribute="width" constant="140" id="37O-ew-uwT"/>
                                 <constraint firstAttribute="height" constant="47" id="ESf-uP-5uI"/>
                             </constraints>
                             <state key="normal" title="Play"/>
@@ -42,14 +43,16 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLF-QV-rV3">
-                            <rect key="frame" x="35" y="27" width="118" height="47"/>
+                            <rect key="frame" x="24" y="27" width="140" height="47"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="118" id="I5z-Wn-AKp"/>
+                                <constraint firstAttribute="width" constant="140" id="I5z-Wn-AKp"/>
                                 <constraint firstAttribute="height" constant="47" id="gzc-NS-xNc"/>
                             </constraints>
-                            <state key="normal" title="Record"/>
+                            <state key="normal" title="Hold To Record"/>
                             <connections>
-                                <action selector="recordAction" destination="-1" eventType="touchUpInside" id="Hy6-0g-SDF"/>
+                                <action selector="recordStartAction" destination="-1" eventType="touchDown" id="lhr-yb-4iB"/>
+                                <action selector="recordStopAction:" destination="-1" eventType="touchUpInside" id="KYw-zw-6BO"/>
+                                <action selector="recordStopAction:" destination="-1" eventType="touchUpOutside" id="TYV-0T-h3p"/>
                             </connections>
                         </button>
                     </subviews>
@@ -62,14 +65,49 @@
                         <constraint firstAttribute="height" constant="100" id="tUc-hm-pjo"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05h-EH-8H5" userLabel="Recording Info View">
+                    <rect key="frame" x="5" y="20" width="120" height="30"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLV-p4-4Rg" userLabel="Dot View">
+                            <rect key="frame" x="2" y="5" width="20" height="20"/>
+                            <color key="backgroundColor" red="1" green="0.28976004459999999" blue="0.22794664740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="7St-hU-35H"/>
+                                <constraint firstAttribute="width" constant="20" id="yRe-vb-EDP"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7M-Lg-LmQ">
+                            <rect key="frame" x="26" y="4.5" width="92" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.30223921654929581" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="E7M-Lg-LmQ" firstAttribute="leading" secondItem="iLV-p4-4Rg" secondAttribute="trailing" constant="4" id="8K4-Fy-Yo7"/>
+                        <constraint firstAttribute="trailing" secondItem="E7M-Lg-LmQ" secondAttribute="trailing" constant="2" id="F4j-Hh-hdq"/>
+                        <constraint firstItem="iLV-p4-4Rg" firstAttribute="leading" secondItem="05h-EH-8H5" secondAttribute="leading" constant="2" id="Pqw-dF-QEq"/>
+                        <constraint firstItem="E7M-Lg-LmQ" firstAttribute="centerY" secondItem="05h-EH-8H5" secondAttribute="centerY" id="bEY-Ld-pNh"/>
+                        <constraint firstItem="iLV-p4-4Rg" firstAttribute="centerY" secondItem="05h-EH-8H5" secondAttribute="centerY" id="fVu-3n-5N5"/>
+                        <constraint firstAttribute="height" constant="30" id="jeH-wN-XX2"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="DJj-gC-wOc" secondAttribute="trailing" id="0NA-Gz-YU2"/>
                 <constraint firstItem="DJj-gC-wOc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5Cx-EL-dc1"/>
                 <constraint firstItem="yND-gp-utF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GUG-Sj-nWv"/>
+                <constraint firstItem="05h-EH-8H5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Yq4-li-QZt"/>
                 <constraint firstAttribute="trailing" secondItem="yND-gp-utF" secondAttribute="trailing" id="bnV-qW-WMH"/>
                 <constraint firstItem="DJj-gC-wOc" firstAttribute="top" secondItem="yND-gp-utF" secondAttribute="bottom" id="lcD-yC-nhc"/>
+                <constraint firstItem="05h-EH-8H5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="pSa-Ae-7ia"/>
                 <constraint firstAttribute="bottom" secondItem="DJj-gC-wOc" secondAttribute="bottom" id="xTl-uv-wvJ"/>
                 <constraint firstItem="yND-gp-utF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yeI-5o-2Ra"/>
             </constraints>

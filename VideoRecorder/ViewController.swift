@@ -20,6 +20,7 @@ class ViewController: UIViewController {
 	@IBOutlet private weak var playButton: UIButton!
 	@IBOutlet private weak var recordButton: UIButton!
 	@IBOutlet private weak var previewContainer: UIView!
+	@IBOutlet weak var recordingInfoView: UIView!
 	
 	private var player: AVPlayer?
 	private var playerLayer: AVPlayerLayer?
@@ -104,21 +105,26 @@ class ViewController: UIViewController {
 	
 	//MARK: - User Interaction
 	
-	@IBAction func recordAction() {
+	@IBAction func recordStartAction() {
 		self.freePlayer()
-		self.setButtonsEnabled(false)
-
+		self.playButton.isEnabled = false
+		self.recordButton.backgroundColor = .red
+		self.recordingInfoView.isHidden = false
+		
 		self.captureService.startRecording(fileURL: self.createFileUrl())
-		DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3) {
-			self.captureService.stopRecording()
-
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-				self.setButtonsEnabled(true)
-				self.playAction()
-			}
-		}
 	}
 
+	@IBAction func recordStopAction(_ sender: Any) {
+		self.captureService.stopRecording()
+		self.recordButton.backgroundColor = .clear
+		self.recordingInfoView.isHidden = true
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+			self.playButton.isEnabled = true
+			self.playAction()
+		}
+	}
+	
 	@IBAction func playAction() {
 		self.freePlayer()
 		
