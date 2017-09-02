@@ -63,14 +63,14 @@ public class CaptureService: NSObject, AVCaptureFileOutputRecordingDelegate {
 	}
 	
 	private func getVideoCaptureDevice() -> AVCaptureDevice? {
-		let session = AVCaptureDevice.DiscoverySession(__deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTelephotoCamera],
+		let session = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTelephotoCamera],
 		                                               mediaType: .video,
 		                                               position: self.position)
 		return session.devices.filter { $0.hasMediaType(.video) && $0.position == self.position }.first
 	}
 	
 	private func getAudioCaptureDevice() -> AVCaptureDevice? {
-		let session = AVCaptureDevice.DiscoverySession(__deviceTypes: [.builtInMicrophone],
+		let session = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInMicrophone],
 		                                               mediaType: .audio,
 		                                               position: .unspecified)
 		return session.devices.filter { $0.hasMediaType(.audio) }.first

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="VideoRecorder" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecorderViewController" customModule="VideoRecorder" customModuleProvider="target">
             <connections>
                 <outlet property="playButton" destination="IMI-ze-jho" id="Fg4-BD-eKC"/>
                 <outlet property="previewContainer" destination="yND-gp-utF" id="0jr-ag-3e4"/>

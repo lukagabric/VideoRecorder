@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecorderViewController.swift
 //  VideoRecorder
 //
 //  Created by Luka Gabric on 05/08/2017.
@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class ViewController: UIViewController {
+class RecorderViewController: UIViewController {
 	
 	//MARK: - Vars
 	
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
 		self.captureService = CaptureService(position: .front)
 		self.previewLayer = self.captureService.previewLayer
 		self.previewLayer.videoGravity = .resizeAspectFill
-		super.init(nibName: "ViewController", bundle: nil)
+		super.init(nibName: "RecorderViewController", bundle: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
 	}

@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		399E902172A3F9AD334C988F /* Pods_VideoRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576862FD4C41DCE465C10A33 /* Pods_VideoRecorder.framework */; };
-		41130CA41F35FAB00019AA95 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41130CA31F35FAB00019AA95 /* ViewController.xib */; };
+		41130CA41F35FAB00019AA95 /* RecorderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41130CA31F35FAB00019AA95 /* RecorderViewController.xib */; };
 		41130CA61F35FBFD0019AA95 /* CaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41130CA51F35FBFD0019AA95 /* CaptureService.swift */; };
 		4124EB361F35FA3C00F2F6A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4124EB351F35FA3C00F2F6A7 /* AppDelegate.swift */; };
-		4124EB381F35FA3C00F2F6A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4124EB371F35FA3C00F2F6A7 /* ViewController.swift */; };
+		4124EB381F35FA3C00F2F6A7 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4124EB371F35FA3C00F2F6A7 /* RecorderViewController.swift */; };
 		4124EB3D1F35FA3C00F2F6A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4124EB3C1F35FA3C00F2F6A7 /* Assets.xcassets */; };
 		4124EB401F35FA3C00F2F6A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4124EB3E1F35FA3C00F2F6A7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		41130CA31F35FAB00019AA95 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		41130CA31F35FAB00019AA95 /* RecorderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecorderViewController.xib; sourceTree = "<group>"; };
 		41130CA51F35FBFD0019AA95 /* CaptureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureService.swift; sourceTree = "<group>"; };
 		4124EB321F35FA3C00F2F6A7 /* VideoRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4124EB351F35FA3C00F2F6A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4124EB371F35FA3C00F2F6A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4124EB371F35FA3C00F2F6A7 /* RecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
 		4124EB3C1F35FA3C00F2F6A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4124EB3F1F35FA3C00F2F6A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4124EB411F35FA3C00F2F6A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,8 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				4124EB351F35FA3C00F2F6A7 /* AppDelegate.swift */,
-				4124EB371F35FA3C00F2F6A7 /* ViewController.swift */,
-				41130CA31F35FAB00019AA95 /* ViewController.xib */,
+				4124EB371F35FA3C00F2F6A7 /* RecorderViewController.swift */,
+				41130CA31F35FAB00019AA95 /* RecorderViewController.xib */,
 				41130CA51F35FBFD0019AA95 /* CaptureService.swift */,
 				4124EB3C1F35FA3C00F2F6A7 /* Assets.xcassets */,
 				4124EB3E1F35FA3C00F2F6A7 /* LaunchScreen.storyboard */,
@@ -157,7 +157,7 @@
 			files = (
 				4124EB401F35FA3C00F2F6A7 /* LaunchScreen.storyboard in Resources */,
 				4124EB3D1F35FA3C00F2F6A7 /* Assets.xcassets in Resources */,
-				41130CA41F35FAB00019AA95 /* ViewController.xib in Resources */,
+				41130CA41F35FAB00019AA95 /* RecorderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41130CA61F35FBFD0019AA95 /* CaptureService.swift in Sources */,
-				4124EB381F35FA3C00F2F6A7 /* ViewController.swift in Sources */,
+				4124EB381F35FA3C00F2F6A7 /* RecorderViewController.swift in Sources */,
 				4124EB361F35FA3C00F2F6A7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
