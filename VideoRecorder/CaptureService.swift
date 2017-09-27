@@ -135,7 +135,6 @@ public class CaptureService: NSObject, AVCaptureFileOutputRecordingDelegate {
 
 	public func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
 		self.isRecording = false
-		print("Did Finish Recording")
 	}
 	
 	//MARK: -
