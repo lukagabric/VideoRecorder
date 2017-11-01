@@ -55,7 +55,21 @@ class RecorderViewController: UIViewController {
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
+		
 		self.previewLayer.frame = self.previewContainer.bounds
+		self.updatePreviewLayerVideoOrientation()
+	}
+	
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		super.viewWillTransition(to: size, with: coordinator)
+		
+		coordinator.animate(alongsideTransition: nil) { _ in
+			self.updatePreviewLayerVideoOrientation()
+		}
+	}
+	
+	private func updatePreviewLayerVideoOrientation() {
+		self.previewLayer.connection?.videoOrientation = UIApplication.shared.statusBarOrientation == .landscapeLeft ? .landscapeLeft : .landscapeRight
 	}
 	
 	//MARK: - Permissions

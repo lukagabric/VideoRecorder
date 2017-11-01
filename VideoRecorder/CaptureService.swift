@@ -84,18 +84,11 @@ public class CaptureService: NSObject, AVCaptureFileOutputRecordingDelegate {
 	
 	private func configureOutput() {
 		let videoOutput = AVCaptureMovieFileOutput()
-		
-		guard self.session.canAddOutput(videoOutput) else { return }
-		self.session.addOutput(videoOutput)
-		
-		guard let connection = videoOutput.connection(with: AVFoundation.AVMediaType.video),
-			connection.isVideoOrientationSupported,
-			connection.isVideoMirroringSupported else { return }
-		
-		connection.videoOrientation = .portrait
-		connection.isVideoMirrored = self.position == .front
-		
 		self.videoOutput = videoOutput
+		
+		if self.session.canAddOutput(videoOutput) {
+			self.session.addOutput(videoOutput)
+		}
 	}
 	
 	//MARK: - Preview
@@ -109,6 +102,15 @@ public class CaptureService: NSObject, AVCaptureFileOutputRecordingDelegate {
 	public func startRecording(fileURL: URL) {
 		guard self.isRecording == false,
 			let videoOutput = self.videoOutput else { return }
+		
+		if let connection = videoOutput.connection(with: AVFoundation.AVMediaType.video) {
+			if connection.isVideoOrientationSupported {
+				connection.videoOrientation = self.videoOrientation
+			}
+			if connection.isVideoMirroringSupported {
+				connection.isVideoMirrored = self.position == .front
+			}
+		}
 		
 		if !self.session.isRunning {
 			self.session.startRunning()
@@ -130,7 +132,16 @@ public class CaptureService: NSObject, AVCaptureFileOutputRecordingDelegate {
 		
 		self.session.stopRunning()
 	}
-		
+	
+	private var videoOrientation: AVCaptureVideoOrientation {
+		switch UIApplication.shared.statusBarOrientation {
+		case .landscapeLeft: return .landscapeLeft
+		case .landscapeRight: return .landscapeRight
+		case .portraitUpsideDown: return .portraitUpsideDown
+		default: return .portrait
+		}
+	}
+	
 	//MARK: - Delegate
 
 	public func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
